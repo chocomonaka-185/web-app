@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>計算カード</title>
+
+  <!-- 
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/print.css" media="print" -->
+
+  <meta name="description" content="計算カード">
+  <meta property="og:description" content="計算カード">
+  <meta property="og:title" content="計算カード">
+  <meta property="og:locale" content="ja_JP">
+
+  <script src="js/script-common.js"></script>
+  <script src="js/config.js"></script>
+
+  <style type = "text /css" >
+    button#dlgBtnKakutei:disabled{
+       color :gray;
+    }
+  </style >
+</head>
+
+<body>
+  <!-- コンテンツ -->
+  
+  <div style="display:flex; justify-content: space-between; font-size:22pt;";>
+  <b>けいさんカード</b>
+  <!-- モーダルウィンドウ内を開くボタンの指定 -->
+    <button id="dlg-open" onclick="dialog.showModal();" style="user-select:none;">
+       モードをえらぶ
+    </button>
+   </div>
+<br><br>
+
+  <div style="display:flex; justify-content: space-between;">
+    <div style="font-size:18pt;" id="mainCaption"></div>
+    <button style="font-size:14pt; user-select:none;"
+    onclick="onBtnStart();" id ="startButton">
+    </button> 
+   </div><br>
+
+   <div id="formula" style="
+       font-size:70pt; text-align:center;
+   ">
+   </div><br>
+
+   <div id="info" style="font-size:20pt;">
+   </div><br>
+
+  <div style="display:flex; justify-content: space-between;">
+ <button style="font-size:32pt; user-select:none; margin-right:10px;"
+    onclick="onBtnPrev();" id ="prevButton">
+  </button>
+ <button style="font-size:32pt; user-select:none;"
+    onclick="onBtnNext();" id ="nextButton">
+  </button> 
+   </div>
+
+    <dialog style="font-size:18pt; user-select:none;" id = "dlgModeSel" >
+      <!-- モーダルウィンドウ内のテキストの指定 -->
+      <p>けいさんカード選択（せんたく）</p>
+      <!-- モーダルウィンドウ内を閉じるボタンの指定 -->
+
+      <select id="mode-selecter" onchange='changeModeSel(this);'>
+          <option value="-1">けいさんカードをえらんでください</option>
+      </select>
+      <!--button onclick="modeSelectNum=0;onDlgClose();" class="dlg-close"></button><br>
+      <button onclick="modeSelectNum=1;onDlgClose();" class="dlg-close"></button><br>
+      <button onclick="modeSelectNum=2;onDlgClose();" class="dlg-close"></button><br>
+      <button onclick="modeSelectNum=3;onDlgClose();" class="dlg-close"></button-->
+      <br><br>
+      <input type ="checkbox" name="chk-shuffle" id="chk-shuffle" checked="checked" onchange="changeShuffle();"/><label for="chk-shuffle"> 🔀 シャッフルしてはじめる</label >
+      <br><br>
+      <div style = "text-align:right;" >
+             <button onclick="dialog.close();" style="user-select:none;">
+              キャンセル
+            </button>
+            <button onclick="onDlgClose();" style="user-select:none; margin-left:+px;" id="dlgBtnKakutei" >
+              ▶️ スタート
+            </button>
+      </div>
+    </dialog>
+ 
+    <script src="js/script.js"></script>
+
+</body>
+</html>
